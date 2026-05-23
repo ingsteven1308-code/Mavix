@@ -170,5 +170,11 @@ body {
 .will-change-transform { will-change: transform, opacity; }
 
 @media (max-width: 768px) {
-  .section-pad { padding: 80px 0; }
+  .section-pad { padding: 70px 0; }
+  .glass,
+  .glass-dark,
+  .glass-accent {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
 }

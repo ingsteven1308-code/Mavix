@@ -13,10 +13,16 @@ import WhatsAppButton from './components/WhatsAppButton'
 import Loader from './components/Loader'
 
 export default function App() {
-  const [showLoader, setShowLoader] = useState(true)
+  const [showLoader, setShowLoader] = useState(false)
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setShowLoader(false), 2600)
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches
+    if (!isDesktop) {
+      return
+    }
+
+    setShowLoader(true)
+    const timer = window.setTimeout(() => setShowLoader(false), 1200)
     return () => window.clearTimeout(timer)
   }, [])
 

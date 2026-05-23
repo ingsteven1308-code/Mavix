@@ -17,7 +17,8 @@ export default function Loader({ onComplete }) {
   const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    const timer = window.setTimeout(() => onComplete?.(), prefersReducedMotion ? 1500 : 2400)
+    const delay = prefersReducedMotion ? 900 : 1200
+    const timer = window.setTimeout(() => onComplete?.(), delay)
     return () => window.clearTimeout(timer)
   }, [onComplete, prefersReducedMotion])
 

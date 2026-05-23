@@ -1,4 +1,4 @@
-import { memo, useRef, useMemo } from 'react'
+import { memo, useRef, useMemo, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
 import VideoHero from '../Videos/MAVIX-Paginas-Web-Armenia.mp4'
@@ -33,8 +33,27 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
   const prefersReducedMotion = useReducedMotion()
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
-  const count = isMobile ? 12 : PARTICLE_COUNT
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
+    const update = () => setIsDesktop(mediaQuery.matches)
+    update()
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', update)
+    } else {
+      mediaQuery.addListener(update)
+    }
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', update)
+      } else {
+        mediaQuery.removeListener(update)
+      }
+    }
+  }, [])
+
+  const count = isDesktop ? PARTICLE_COUNT : 12
 
   const particles = useMemo(() =>
     Array.from({ length: count }, (_, i) => ({
@@ -49,23 +68,27 @@ function Hero() {
         ? 'rgba(201,205,210,0.4)'
         : 'rgba(255,255,255,0.2)',
     }))
-  , [])
+  , [count])
 
   return (
     <>
       <section id="inicio" ref={ref} className="relative min-h-screen flex flex-col justify-center overflow-hidden hero-spotlight scroll-mt-28">
 
       {/* Video background */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover brightness-[0.46] contrast-[1.05]"
-        style={{ objectPosition: 'center 22%' }}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        src={VideoHero}
-      />
+      {isDesktop ? (
+        <video
+          className="absolute inset-0 h-full w-full object-cover brightness-[0.46] contrast-[1.05]"
+          style={{ objectPosition: 'center 22%' }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          src={VideoHero}
+        />
+      ) : (
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(91,140,255,0.08),transparent_22%),linear-gradient(180deg,rgba(10,10,10,0.96),rgba(0,0,0,0.92))]" />
+      )}
       <div className="absolute top-0 right-0 h-36 w-72 bg-gradient-to-l from-black/90 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-black/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/0" />

@@ -1,6 +1,7 @@
-import { memo, useState } from 'react'
+import { memo, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, MessageSquare, Mail, Phone, Calendar } from 'lucide-react'
+import ContactVideo from '../Videos/creacion-paginas-web-armenia.MP4'
 
 const WA_NUMBER = '573136135417'
 
@@ -40,6 +41,25 @@ function Contact() {
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [showVideo, setShowVideo] = useState(false)
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 1024px)')
+    const handleChange = () => setShowVideo(query.matches)
+    handleChange()
+    if (query.addEventListener) {
+      query.addEventListener('change', handleChange)
+    } else {
+      query.addListener(handleChange)
+    }
+    return () => {
+      if (query.removeEventListener) {
+        query.removeEventListener('change', handleChange)
+      } else {
+        query.removeListener(handleChange)
+      }
+    }
+  }, [])
 
   const validate = () => {
     const e = {}
@@ -94,6 +114,24 @@ function Contact() {
 
   return (
     <section id="contacto" className="section-pad relative overflow-hidden section-surface">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {showVideo ? (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src={ContactVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <div className="absolute inset-0 bg-black/85" />
+        )}
+      </div>
+
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(91,140,255,0.06),transparent_28%)] pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-[#5B8CFF]/20 to-transparent" />
 
