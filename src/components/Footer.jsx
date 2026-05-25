@@ -77,11 +77,11 @@ function Footer() {
                   +57 313 613 5417
                 </a>
                 <a
-                  href="mailto:hola@mavix.co"
+                  href="mailto:mavix@gmail.com"
                   className="inline-flex items-center gap-2 text-xs font-grotesk text-[#7A7A7A] hover:text-[#5B8CFF] transition-colors duration-300"
                 >
                   <Mail size={13} className="text-[#5B8CFF]" />
-                  hola@mavix.co
+                  mavix@gmail.com
                 </a>
               </div>
             </motion.div>

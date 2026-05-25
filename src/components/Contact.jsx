@@ -1,7 +1,7 @@
 import { memo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, MessageSquare, Mail, Phone, Calendar } from 'lucide-react'
-import ContactBg from '../Images/desarrollo-app-web-colombia.PNG'
+import ContactBg from '../Images/desarrollo-app-web-colombia.jpg'
 
 const WA_NUMBER = '573136135417'
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import MavixLogo from '../Images/MAVIX-Marketing-Armenia.png'
+import MavixLogo from '../Images/MAVIX-Marketing-Armenia.jpg'
 
 const container = {
   hidden: { opacity: 0 },

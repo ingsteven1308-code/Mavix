@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Shield, Zap, Star, Users } from 'lucide-react'
-import AboutBg from '../Images/aplicaciones-web-armenia-quindio.PNG'
+import AboutBg from '../Images/aplicaciones-web-armenia-quindio.jpg'
 
 const values = [
   { icon: Star, label: 'Excelencia', desc: 'Cada detalle importa. Entregamos calidad premium sin excepciones.' },

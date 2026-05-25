@@ -1,10 +1,10 @@
 import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Globe, Code2, ShoppingBag, Zap } from 'lucide-react'
-import ProjectsBg from '../Images/Armenia-Quindio-Ciudad.PNG'
-import PaginasWebArmenia from '../Images/Paginas-Web-Armenia.PNG'
-import LuminousOdontologia from '../Images/Luminous-Odondologia-Armenia.PNG'
-import TiendaOnlineWeb from '../Images/Tienda-Online-Web.PNG'
+import ProjectsBg from '../Images/Armenia-Quindio-Ciudad.jpg'
+import PaginasWebArmenia from '../Images/Paginas-Web-Armenia.jpg'
+import LuminousOdontologia from '../Images/Luminous-Odondologia-Armenia.jpg'
+import TiendaOnlineWeb from '../Images/Tienda-Online-Web.jpg'
 
 const categories = ['Todos', 'Web', 'Software']
 
