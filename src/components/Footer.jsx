@@ -13,9 +13,10 @@ const links = {
   services: [
     { label: 'Desarrollo Web', href: '#servicios' },
     { label: 'Software a Medida', href: '#servicios' },
-    { label: 'Automatización', href: '#servicios' },
-    { label: 'IA para Negocios', href: '#servicios' },
-    { label: 'Branding Digital', href: '#servicios' },
+    { label: 'Apps Web', href: '#servicios' },
+    { label: 'Tiendas Online Premium', href: '#servicios' },
+    { label: 'Landing Pages de Alto Impacto', href: '#servicios' },
+    { label: 'Creamos contenido digital para tus redes sociales', href: '#servicios' },
   ],
 }
 
