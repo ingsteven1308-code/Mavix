@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
-import { Globe, Code2, Zap, Monitor, Sparkles, Brain } from 'lucide-react'
+import { Globe, Code2, Zap, Monitor, Sparkles, ShoppingBag } from 'lucide-react'
 
 const services = [
   {
@@ -22,15 +22,15 @@ const services = [
     color: '#5B8CFF',
   },
   {
-    icon: Zap,
-    title: 'Creamos contenido digital para tus redes sociales',
-    description: 'Diseñamos contenido visual estratégico y atractivo para redes sociales que fortalece tu marca, aumenta tu presencia digital y conecta profesionalmente con tu audiencia.',
+    icon: ShoppingBag,
+    title: 'Tiendas Online Premium',
+    description: 'Creamos tiendas online modernas, rápidas y estratégicas diseñadas para impulsar tus ventas y ofrecer una experiencia de compra profesional.',
     color: '#C9CDD2',
   },
   {
     icon: Sparkles,
-    title: 'Branding Digital',
-    description: 'Identidad visual premium y estrategia de marca que posiciona tu empresa como líder en su sector.',
+    title: 'Landing Pages de Alto Impacto',
+    description: ' Diseñamos landing pages modernas y estratégicas enfocadas en captar la atención, transmitir confianza y convertir visitantes en clientes potenciales',
     color: '#5B8CFF',
   },
   //{
@@ -39,6 +39,12 @@ const services = [
     //description: 'Implementamos inteligencia artificial en tus procesos: chatbots, análisis predictivo y automatización inteligente.',
     //color: '#5B8CFF',
   //},
+   {
+    icon: Zap,
+    title: 'Creamos contenido digital para tus redes sociales',
+    description: 'Diseñamos contenido visual estratégico y atractivo para redes sociales que fortalece tu marca, aumenta tu presencia digital y conecta profesionalmente con tu audiencia.',
+    color: '#C9CDD2',
+  },
 ]
 
 const stagger = {

@@ -78,7 +78,7 @@ function CTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            {['Sin compromiso', 'Respuesta en 24h', 'Consultoría gratuita', 'Proyectos desde $500 USD'].map(badge => (
+            {['Sin compromiso', 'Respuesta en 24h', 'Consultoría gratuita', 'Equipo altamente profesiona'].map(badge => (
               <span key={badge} className="flex items-center gap-1.5 font-grotesk text-xs text-[#7A7A7A]">
                 <span className="w-1 h-1 rounded-full bg-[#5B8CFF]" />
                 {badge}

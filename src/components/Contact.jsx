@@ -1,28 +1,17 @@
-import { memo, useState, useEffect } from 'react'
+import { memo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, MessageSquare, Mail, Phone, Calendar } from 'lucide-react'
-import ContactVideo from '../Videos/creacion-paginas-web-armenia.MP4'
+import ContactBg from '../Images/desarrollo-app-web-colombia.PNG'
 
 const WA_NUMBER = '573136135417'
 
 const services = [
   'Desarrollo Web',
   'Software a Medida',
-  'Automatización',
   'App Web',
-  'Branding Digital',
-  'Sistemas Empresariales',
-  'IA para Negocios',
-  'Consultoría Digital',
-]
-
-const budgets = [
-  'Menos de $500 USD',
-  '$500 – $1.500 USD',
-  '$1.500 – $5.000 USD',
-  '$5.000 – $15.000 USD',
-  'Más de $15.000 USD',
-  'A definir / Consultar',
+  'Tiendas Online Premium',
+  'Landing Pages de Alto Impacto',
+  'contenido digital redes sociales',
 ]
 
 const init = {
@@ -31,7 +20,6 @@ const init = {
   whatsapp: '',
   correo: '',
   servicio: '',
-  presupuesto: '',
   descripcion: '',
   fecha: '',
 }
@@ -41,25 +29,6 @@ function Contact() {
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [showVideo, setShowVideo] = useState(false)
-
-  useEffect(() => {
-    const query = window.matchMedia('(min-width: 1024px)')
-    const handleChange = () => setShowVideo(query.matches)
-    handleChange()
-    if (query.addEventListener) {
-      query.addEventListener('change', handleChange)
-    } else {
-      query.addListener(handleChange)
-    }
-    return () => {
-      if (query.removeEventListener) {
-        query.removeEventListener('change', handleChange)
-      } else {
-        query.removeListener(handleChange)
-      }
-    }
-  }, [])
 
   const validate = () => {
     const e = {}
@@ -87,7 +56,6 @@ function Contact() {
       `📱 *WhatsApp:* ${form.whatsapp}`,
       `📧 *Correo:* ${form.correo}`,
       `⚡ *Servicio:* ${form.servicio}`,
-      form.presupuesto ? `💰 *Presupuesto:* ${form.presupuesto}` : null,
       form.fecha ? `📅 *Fecha deseada:* ${form.fecha}` : null,
       ``,
       `📝 *Descripción:*`,
@@ -114,25 +82,14 @@ function Contact() {
 
   return (
     <section id="contacto" className="section-pad relative overflow-hidden section-surface">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {showVideo ? (
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: 'center 30%' }}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src={ContactVideo} type="video/mp4" />
-          </video>
-        ) : (
-          <div className="absolute inset-0 bg-black/85" />
-        )}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${ContactBg})` }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(91,140,255,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_20%)] pointer-events-none" />
       </div>
-
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(91,140,255,0.06),transparent_28%)] pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-[#5B8CFF]/20 to-transparent" />
 
       {/* BG glow */}
@@ -156,45 +113,47 @@ function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-grotesk text-[#5B8CFF] text-xs tracking-[0.3em] uppercase font-medium mb-4">
-              Agenda una reunión
-            </span>
-            <h2 className="font-sora font-bold text-4xl md:text-5xl gradient-text mb-6 leading-tight">
-              Hagamos algo{' '}
-              <span className="text-[#5B8CFF]">extraordinario.</span>
-            </h2>
-            <p className="font-poppins text-[#7A7A7A] text-base leading-relaxed mb-10">
-              Cuéntanos tu proyecto. En menos de 24 horas te contactamos para agendar una reunión estratégica sin costo.
-            </p>
+            <div className="glass-accent border border-white/10 p-8 rounded-[32px] shadow-[0_35px_90px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <span className="inline-block font-grotesk text-[#5B8CFF] text-xs tracking-[0.3em] uppercase font-medium mb-4">
+                Agenda una reunión
+              </span>
+              <h2 className="font-sora font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
+                Hagamos algo{' '}
+                <span className="text-[#5B8CFF]">extraordinario.</span>
+              </h2>
+              <p className="font-poppins text-[#D1D5DB] text-base leading-relaxed mb-8 max-w-xl">
+                Cuéntanos tu proyecto y te contactamos en menos de 24 horas para agendar una reunión estratégica sin costo.
+              </p>
 
-            {/* Contact details */}
-            <div className="flex flex-col gap-4">
-              {[
-                { icon: MessageSquare, label: 'WhatsApp', value: '+57 313 613 5417', href: `https://wa.me/${WA_NUMBER}` },
-                { icon: Mail, label: 'Email', value: 'hola@mavix.co', href: 'mailto:hola@mavix.co' },
-                { icon: Phone, label: 'Llamada', value: '+57 313 613 5417', href: `tel:+${WA_NUMBER}` },
-                { icon: Calendar, label: 'Reunión', value: 'Lunes – Viernes, 8am – 6pm', href: '#' },
-              ].map(item => {
-                const Icon = item.icon
-                return (
-                  <motion.a
-                    key={item.label}
-                    href={item.href}
-                    target={item.href.startsWith('http') ? '_blank' : undefined}
-                    rel="noreferrer"
-                    className="group flex items-center gap-4 p-4 glass rounded-xl border border-white/6 hover:border-[#5B8CFF]/25 transition-all duration-300"
-                    whileHover={{ x: 4 }}
-                  >
-                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border border-[#5B8CFF]/20" style={{ background: 'rgba(91,140,255,0.1)' }}>
-                      <Icon size={16} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <p className="font-grotesk text-[10px] text-[#7A7A7A] uppercase tracking-widest">{item.label}</p>
-                      <p className="font-grotesk text-sm text-[#F5F5F5] font-medium">{item.value}</p>
-                    </div>
-                  </motion.a>
-                )
-              })}
+              {/* Contact details */}
+              <div className="grid gap-4">
+                {[
+                  { icon: MessageSquare, label: 'WhatsApp', value: '+57 313 613 5417', href: `https://wa.me/${WA_NUMBER}` },
+                  { icon: Mail, label: 'Email', value: 'mavix@gmail.com', href: 'mailto:mavix@gmail.com' },
+                  { icon: Phone, label: 'Llamada', value: '+57 313 613 5417', href: `tel:+${WA_NUMBER}` },
+                  { icon: Calendar, label: 'Reunión', value: 'Lunes – Viernes, 8am – 6pm', href: '#' },
+                ].map(item => {
+                  const Icon = item.icon
+                  return (
+                    <motion.a
+                      key={item.label}
+                      href={item.href}
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel="noreferrer"
+                      className="group flex items-center gap-4 p-4 glass rounded-xl border border-white/6 hover:border-[#5B8CFF]/25 transition-all duration-300"
+                      whileHover={{ x: 4 }}
+                    >
+                      <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border border-[#5B8CFF]/20" style={{ background: 'rgba(91,140,255,0.1)' }}>
+                        <Icon size={16} className="text-[#5B8CFF]" />
+                      </div>
+                      <div>
+                        <p className="font-grotesk text-[10px] text-[#7A7A7A] uppercase tracking-widest">{item.label}</p>
+                        <p className="font-grotesk text-sm text-[#F5F5F5] font-medium">{item.value}</p>
+                      </div>
+                    </motion.a>
+                  )
+                })}
+              </div>
             </div>
           </motion.div>
 
@@ -224,7 +183,7 @@ function Contact() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <FormField label="WhatsApp *" error={errors.whatsapp}>
+                    <FormField label="Teléfono/WhatsApp*" error={errors.whatsapp}>
                       <input name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="+57 300 000 0000" className="premium-input" type="tel" />
                     </FormField>
                     <FormField label="Correo *" error={errors.correo}>
@@ -239,11 +198,8 @@ function Contact() {
                         {services.map(s => <option key={s} value={s}>{s}</option>)}
                       </select>
                     </FormField>
-                    <FormField label="Presupuesto" error={errors.presupuesto}>
-                      <select name="presupuesto" value={form.presupuesto} onChange={handleChange} className="premium-input">
-                        <option value="">Rango de inversión</option>
-                        {budgets.map(b => <option key={b} value={b}>{b}</option>)}
-                      </select>
+                    <FormField label="Fecha preferida de reunión">
+                      <input name="fecha" value={form.fecha} onChange={handleChange} className="premium-input" type="date" min={new Date().toISOString().split('T')[0]} />
                     </FormField>
                   </div>
 
@@ -256,10 +212,6 @@ function Contact() {
                       className="premium-input resize-none"
                       rows={4}
                     />
-                  </FormField>
-
-                  <FormField label="Fecha preferida de reunión">
-                    <input name="fecha" value={form.fecha} onChange={handleChange} className="premium-input" type="date" min={new Date().toISOString().split('T')[0]} />
                   </FormField>
 
                   <motion.button
