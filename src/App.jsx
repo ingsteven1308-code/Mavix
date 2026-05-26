@@ -47,7 +47,7 @@ export default function App() {
 
         <Navbar />
 
-        <main className="relative">
+        <main className="relative" aria-label="Contenido principal de MAVIX Tech">
           <Hero />
           <Services />
           <Projects />

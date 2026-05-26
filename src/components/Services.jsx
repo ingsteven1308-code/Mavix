@@ -8,42 +8,42 @@ const services = [
     title: 'Desarrollo Web',
     description: 'Sitios web premium, rápidos y escalables. Desde landing pages de alto impacto hasta plataformas complejas.',
     color: '#5B8CFF',
+    link: '/desarrollo-web.html',
   },
   {
     icon: Code2,
     title: 'Software a Medida',
     description: 'Soluciones de software personalizadas que se adaptan exactamente a los procesos y necesidades de tu negocio.',
     color: '#C9CDD2',
+    link: '/software-a-medida.html',
   },
   {
     icon: Monitor,
     title: 'Apps Web',
     description: 'Aplicaciones web interactivas y PWAs que ofrecen experiencias fluidas en cualquier dispositivo.',
     color: '#5B8CFF',
+    link: '/apps-web.html',
   },
   {
     icon: ShoppingBag,
     title: 'Tiendas Online Premium',
     description: 'Creamos tiendas online modernas, rápidas y estratégicas diseñadas para impulsar tus ventas y ofrecer una experiencia de compra profesional.',
     color: '#C9CDD2',
+    link: '/ecommerce.html',
   },
   {
     icon: Sparkles,
     title: 'Landing Pages de Alto Impacto',
     description: ' Diseñamos landing pages modernas y estratégicas enfocadas en captar la atención, transmitir confianza y convertir visitantes en clientes potenciales',
     color: '#5B8CFF',
+    link: '/landing-pages.html',
   },
-  //{
-    //icon: Brain,
-    //title: 'IA para Negocios',
-    //description: 'Implementamos inteligencia artificial en tus procesos: chatbots, análisis predictivo y automatización inteligente.',
-    //color: '#5B8CFF',
-  //},
    {
     icon: Zap,
-    title: 'Creamos contenido digital para tus redes sociales',
+    title: 'Contenido digital para redes sociales',
     description: 'Diseñamos contenido visual estratégico y atractivo para redes sociales que fortalece tu marca, aumenta tu presencia digital y conecta profesionalmente con tu audiencia.',
     color: '#C9CDD2',
+    link: '/contenido-digital.html',
   },
 ]
 
@@ -148,7 +148,7 @@ function ServiceCard({ svc, index }) {
       </p>
 
       {/* Tags */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mb-6">
         {(svc.tags ?? []).map(tag => (
           <span
             key={tag}
@@ -163,6 +163,15 @@ function ServiceCard({ svc, index }) {
           </span>
         ))}
       </div>
+
+      {svc.link && (
+        <a
+          href={svc.link}
+          className="inline-flex items-center justify-center rounded-3xl px-5 py-3 text-sm font-semibold font-grotesk text-[#F5F5F5] border border-[#5B8CFF]/25 bg-white/5 transition-all duration-300 hover:bg-white/10"
+        >
+          Ver servicio
+        </a>
+      )}
     </motion.article>
   )
 }

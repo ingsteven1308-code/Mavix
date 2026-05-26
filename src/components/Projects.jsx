@@ -166,17 +166,22 @@ export default memo(Projects)
 
 function ProjectCard({ project }) {
   const Icon = project.icon
+  const projectId = `project-${project.id}`
   return (
-    <motion.div
+    <motion.article
       variants={cardV}
       className="group relative rounded-[28px] overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer glass-accent"
       whileHover={{ y: -8, boxShadow: '0 35px 90px rgba(91,140,255,0.16)' }}
+      aria-labelledby={projectId}
+      role="article"
     >
       {/* Visual area */}
       <div className="relative h-52 overflow-hidden group">
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - proyecto de desarrollo web, software a medida y ecommerce`}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[0.22,1,0.36,1] group-hover:scale-105"
         />
         <a
@@ -235,13 +240,13 @@ function ProjectCard({ project }) {
 
       {/* Info area */}
       <div className="glass p-6 border-t border-white/5">
-        <h3 className="font-sora font-bold text-lg text-[#F5F5F5] mb-0.5">{project.title}</h3>
+        <h3 id={projectId} className="font-sora font-bold text-lg text-[#F5F5F5] mb-0.5">{project.title}</h3>
         <p className="font-grotesk text-xs text-[#7A7A7A] mb-3 tracking-wide">{project.subtitle}</p>
         <p className="font-poppins text-sm text-[#7A7A7A] leading-relaxed mb-4">{project.desc}</p>
         <div className="flex flex-wrap gap-1.5">
          
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   )
 }

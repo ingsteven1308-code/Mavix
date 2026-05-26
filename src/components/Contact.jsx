@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, MessageSquare, Mail, Phone, Calendar } from 'lucide-react'
 import ContactBg from '../Images/desarrollo-app-web-colombia.jpg'
@@ -257,11 +257,22 @@ function Contact() {
 export default memo(Contact)
 
 function FormField({ label, error, children }) {
+  const childProps = children?.props || {}
+  const fieldId = childProps.id || childProps.name || label.replace(/\s+/g, '-').toLowerCase()
+  const field = React.isValidElement(children)
+    ? React.cloneElement(children, {
+        id: fieldId,
+        'aria-describedby': error ? `${fieldId}-error` : undefined,
+      })
+    : children
+
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-grotesk text-xs font-medium text-[#7A7A7A] tracking-wide">{label}</label>
-      {children}
-      {error && <span className="font-grotesk text-xs text-red-400">{error}</span>}
+      <label htmlFor={fieldId} className="font-grotesk text-xs font-medium text-[#7A7A7A] tracking-wide">
+        {label}
+      </label>
+      {field}
+      {error && <span id={`${fieldId}-error`} className="font-grotesk text-xs text-red-400">{error}</span>}
     </div>
   )
 }

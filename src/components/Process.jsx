@@ -47,77 +47,56 @@ const steps = [
 export default function Process() {
   return (
     <section id="proceso" className="section-pad relative overflow-hidden section-surface">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(91,140,255,0.1),transparent_32%)] pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-[#5B8CFF]/15 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,140,255,0.14),transparent_28%)] pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#5B8CFF]/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-[#5B8CFF]/25 to-transparent" />
 
-      {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#5B8CFF] opacity-[0.025] blur-[150px] rounded-full" />
+        <div className="absolute top-16 left-1/4 h-52 w-52 rounded-full bg-[#5B8CFF]/10 blur-[100px]" />
+        <div className="absolute bottom-20 right-1/4 h-64 w-64 rounded-full bg-[#C9CDD0]/10 blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
-          <span className="inline-block font-grotesk text-[#5B8CFF] text-xs tracking-[0.3em] uppercase font-medium mb-4">
+          <span className="inline-block font-grotesk text-[#5B8CFF] text-xs tracking-[0.28em] uppercase font-medium mb-4">
             Nuestro proceso
           </span>
-          <h2 className="font-sora font-bold text-4xl md:text-5xl lg:text-6xl gradient-text mb-6 leading-tight">
-            Cómo trabajamos
+          <h2 className="font-sora font-bold text-4xl md:text-5xl lg:text-6xl gradient-text mb-5 leading-tight">
+            Cómo trabajamos para llevar tu proyecto más lejos
           </h2>
-          <p className="max-w-xl mx-auto font-poppins text-[#7A7A7A] text-base md:text-lg leading-relaxed">
-            Un proceso probado y transparente que garantiza resultados excepcionales en cada entrega.
+          <p className="max-w-2xl mx-auto font-poppins text-[#9CA3AF] text-base md:text-lg leading-relaxed">
+            Cada fase está diseñada para darte claridad, confianza y resultados medibles desde el primer paso hasta el lanzamiento.
           </p>
         </motion.div>
 
-        {/* Desktop timeline */}
         <div className="hidden lg:block">
-          {/* Connector line */}
-          <div className="relative flex justify-center mb-16">
-            <motion.div
-              className="absolute top-1/2 left-[10%] right-[10%] h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(91,140,255,0.4) 20%, rgba(201,205,210,0.3) 50%, rgba(91,140,255,0.4) 80%, transparent)' }}
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-            />
-
-            <div className="relative flex justify-between w-full px-4">
+          <div className="relative mb-16">
+            <div className="absolute inset-x-12 top-1/2 h-px bg-gradient-to-r from-transparent via-[#5B8CFF]/40 to-transparent" />
+            <div className="relative flex items-center justify-between gap-6 px-6">
               {steps.map((step, i) => {
                 const Icon = step.icon
                 return (
                   <motion.div
                     key={step.number}
-                    className="flex flex-col items-center"
+                    className="relative z-10 flex h-14 w-14 items-center justify-center rounded-3xl border border-white/10 bg-[#0F172A]/90 shadow-[0_16px_40px_rgba(0,0,0,0.2)]"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.12 + 0.4 }}
+                    transition={{ duration: 0.7, delay: 0.2 + i * 0.08 }}
                   >
-                    <motion.div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center border relative z-10"
-                      style={{
-                        background: `${step.color}12`,
-                        borderColor: `${step.color}35`,
-                      }}
-                      whileHover={{ scale: 1.1, boxShadow: `0 0 24px ${step.color}40` }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <Icon size={22} style={{ color: step.color }} />
-                    </motion.div>
+                    <Icon size={20} style={{ color: step.color }} />
                   </motion.div>
                 )
               })}
             </div>
           </div>
 
-          {/* Step cards */}
           <div className="grid grid-cols-5 gap-5">
             {steps.map((step, i) => (
               <StepCard key={step.number} step={step} index={i} />
@@ -125,45 +104,33 @@ export default function Process() {
           </div>
         </div>
 
-        {/* Mobile timeline */}
-        <div className="lg:hidden flex flex-col gap-0">
+        <div className="lg:hidden grid gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon
             return (
-              <motion.div
+              <motion.article
                 key={step.number}
-                className="relative flex gap-5"
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0B1220]/95 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.25)]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Left: number + line */}
-                <div className="flex flex-col items-center">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border"
-                    style={{ background: `${step.color}12`, borderColor: `${step.color}30` }}
-                  >
-                    <Icon size={18} style={{ color: step.color }} />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(91,140,255,0.12),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_55%)] pointer-events-none" />
+                <div className="relative flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-3xl border border-white/10 bg-[#141E3A]/85 text-[#5B8CFF]">
+                      <Icon size={18} />
+                    </div>
+                    <span className="font-sora text-2xl font-semibold text-[#F5F5F3]">{step.number}</span>
                   </div>
-                  {i < steps.length - 1 && (
-                    <div
-                      className="w-px flex-1 mt-2 mb-0"
-                      style={{ background: `linear-gradient(180deg, ${step.color}40, transparent)`, minHeight: '32px' }}
-                    />
-                  )}
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-[#CBD5E1]">
+                    {step.detail}
+                  </span>
                 </div>
-
-                {/* Right: content */}
-                <div className="pb-10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="font-grotesk text-[11px] font-bold text-[#5B8CFF] tracking-widest">{step.number}</span>
-                    <span className="font-grotesk text-[11px] text-[#7A7A7A] tracking-widest">{step.detail}</span>
-                  </div>
-                  <h3 className="font-sora font-bold text-lg text-[#F5F5F5] mb-2">{step.title}</h3>
-                  <p className="font-poppins text-sm text-[#7A7A7A] leading-relaxed">{step.desc}</p>
-                </div>
-              </motion.div>
+                <h3 className="font-sora text-xl font-bold text-[#F5F5F5] mb-3">{step.title}</h3>
+                <p className="font-poppins text-sm leading-relaxed text-[#B0BBCF]">{step.desc}</p>
+              </motion.article>
             )
           })}
         </div>
@@ -174,27 +141,26 @@ export default function Process() {
 
 function StepCard({ step, index }) {
   return (
-    <motion.div
-      className="group glass-accent rounded-[26px] p-6 border border-white/10 hover:border-[#5B8CFF]/25 transition-all duration-500 shadow-[0_24px_70px_rgba(0,0,0,0.18)]"
+    <motion.article
+      className="relative overflow-hidden rounded-[32px] border border-[#3B4B6F]/70 bg-[#0B1220]/95 p-6 shadow-[0_18px_80px_rgba(0,0,0,0.2)] transition-transform duration-500 hover:-translate-y-2"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: index * 0.1 + 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay: index * 0.1 + 0.4, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -4 }}
     >
-      <div className="flex items-center justify-between mb-4">
-        <span
-          className="font-sora font-bold text-2xl"
-          style={{ color: `${step.color}50` }}
-        >
-          {step.number}
-        </span>
-        <span className="font-grotesk text-[10px] text-[#7A7A7A] tracking-widest uppercase border border-white/8 px-2 py-0.5 rounded">
-          {step.detail}
-        </span>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(91,140,255,0.1),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.04),transparent_55%)] opacity-80 pointer-events-none" />
+      <div className="relative">
+        <div className="flex items-center justify-between mb-5">
+          <span className="font-sora text-2xl font-semibold text-[#5B8CFF]">{step.number}</span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-[#CBD5E1]">
+            {step.detail}
+          </span>
+        </div>
+
+        <h3 className="font-sora text-xl font-bold text-[#F5F5F5] mb-3">{step.title}</h3>
+        <p className="font-poppins text-sm leading-relaxed text-[#B0BBCF]">{step.desc}</p>
       </div>
-      <h3 className="font-sora font-bold text-base text-[#F5F5F5] mb-2">{step.title}</h3>
-      <p className="font-poppins text-xs text-[#7A7A7A] leading-relaxed">{step.desc}</p>
-    </motion.div>
+    </motion.article>
   )
 }

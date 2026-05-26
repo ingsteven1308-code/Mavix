@@ -51,7 +51,7 @@ export default function Loader({ onComplete }) {
           >
             <img
               src={MavixLogo}
-              alt="MAVIX loader"
+              alt="Logo MAVIX Tech para carga inicial de sitio web"
               className="h-[240px] w-auto object-contain"
               loading="eager"
               decoding="sync"
@@ -65,9 +65,9 @@ export default function Loader({ onComplete }) {
             className="text-center"
           >
             <p className="text-sm uppercase tracking-[0.32em] text-[#C9CDD2]/80">MAVIX · Diseño Digital Premium</p>
-            <h1 className="font-sora text-4xl font-bold text-[#F5F5F3] sm:text-5xl lg:text-6xl">
+            <h2 className="font-sora text-4xl font-bold text-[#F5F5F3] sm:text-5xl lg:text-6xl">
              Bienvenido a MAVIX
-            </h1>
+            </h2>
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-[#C9CDD2]/70 sm:text-base">
               Cargando innovación, diseño y tecnología para llevar tu marca al siguiente nivel.
             </p>

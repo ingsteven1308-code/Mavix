@@ -41,6 +41,7 @@ function Navbar() {
 
   return (
     <motion.nav
+      aria-label="Navegación principal"
       initial={prefersReducedMotion ? { y: 0, opacity: 1 } : { y: -120, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -56,7 +57,7 @@ function Navbar() {
             <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.2 }}>
             <img
               src="/logo.png"
-              alt="MAVIX"
+              alt="Logo MAVIX Tech agencia digital en Armenia Quindío"
               loading="lazy"
               decoding="async"
               className="h-9 w-auto"

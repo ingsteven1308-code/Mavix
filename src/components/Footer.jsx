@@ -30,7 +30,7 @@ function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-white/5 overflow-hidden section-surface">
+    <footer aria-label="Pie de página" className="relative border-t border-white/5 overflow-hidden section-surface">
       {/* Top gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-px bg-gradient-to-r from-transparent via-[#5B8CFF]/15 to-transparent" />
 
@@ -48,7 +48,7 @@ function Footer() {
               <div className="flex items-center gap-3 mb-5">
                 <img
                   src="/logo.png"
-                  alt="MAVIX"
+                  alt="Logo MAVIX Tech agencia digital en Armenia Quindío"
                   loading="lazy"
                   decoding="async"
                   className="h-9 w-auto"
