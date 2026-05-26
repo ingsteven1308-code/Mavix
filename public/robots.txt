@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.mavixtech.co/sitemap.xml
+Host: https://www.mavixtech.co

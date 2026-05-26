@@ -73,14 +73,13 @@ function Services() {
           className="text-center mb-20"
         >
           <span className="inline-block font-grotesk text-[#5B8CFF] text-xs tracking-[0.3em] uppercase font-medium mb-4">
-            Lo que hacemos
+            Servicios en Armenia, Quindío y Colombia
           </span>
           <h2 className="font-sora font-bold text-4xl md:text-5xl lg:text-6xl gradient-text mb-6 leading-tight">
-            Servicios Premium
+            Soluciones digitales estratégicas
           </h2>
           <p className="max-w-2xl mx-auto font-poppins text-[#7A7A7A] text-base md:text-lg leading-relaxed">
-            Cada solución que construimos está diseñada para posicionar tu empresa
-            como un referente premium en el mundo digital.
+            Desarrollamos tecnología premium para empresas colombianas: desde tiendas online y landing pages hasta software empresarial, apps web y automatización.
           </p>
         </motion.div>
 
@@ -108,12 +107,13 @@ function ServiceCard({ svc, index }) {
   const isLast = index === 6
 
   return (
-    <motion.div
+    <motion.article
       variants={cardVariant}
       className={`group relative glass-accent rounded-[28px] p-7 border border-white/10 hover:border-[#5B8CFF]/30 transition-all duration-500 cursor-default overflow-hidden card-glow ${
         isLast ? 'md:col-span-2 lg:col-span-1' : ''
       }`}
       whileHover={{ y: -8 }}
+      aria-label={svc.title}
     >
       {/* Hover glow */}
       <motion.div
@@ -163,6 +163,6 @@ function ServiceCard({ svc, index }) {
           </span>
         ))}
       </div>
-    </motion.div>
+    </motion.article>
   )
 }

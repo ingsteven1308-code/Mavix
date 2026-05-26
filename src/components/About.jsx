@@ -36,17 +36,17 @@ export default function About() {
               Sobre MAVIX
             </span>
             <h2 className="font-sora font-bold text-4xl md:text-5xl gradient-text mb-6 leading-tight">
-              Diseñamos presencia.{' '}
-              <span className="text-[#5B8CFF]"> Creamos autoridad</span>
+              Agencia tecnológica en Armenia{' '}
+              <span className="text-[#5B8CFF]">y el Eje Cafetero</span>
             </h2>
             <p className="font-poppins text-[#7A7A7A] text-base leading-relaxed mb-5">
-              MAVIX nace con una visión clara: ayudar a empresas y emprendedores a construir una presencia digital moderna, sólida y memorable.
+              MAVIX acompaña a empresas en Armenia, Quindío y Colombia con diseño web, software a medida y estrategia digital de alto nivel.
             </p>
             <p className="font-poppins text-[#7A7A7A] text-base leading-relaxed mb-8">
-              Desarrollamos páginas web, software a medida, apps web y branding digital combinando diseño premium, tecnología moderna y estrategia digital para crear experiencias que generan impacto, confianza y autoridad.
+              Creamos páginas web corporativas, sistemas empresariales, tiendas online y apps web que combinan estética premium, rendimiento CRO y mensajes claros para captar clientes.
             </p>
-<p className="font-poppins text-[#7A7A7A] text-base leading-relaxed mb-8">
-            Creamos soluciones pensadas para empresas que quieren evolucionar, destacar y crecer al siguiente nivel
+            <p className="font-poppins text-[#7A7A7A] text-base leading-relaxed mb-8">
+              Nuestra propuesta es tecnología estratégica: landing pages de impacto, automatización empresarial y contenido digital para marcas que buscan liderar en todo Colombia.
             </p>
             <motion.a
               href="#contacto"

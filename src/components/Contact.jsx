@@ -118,11 +118,11 @@ function Contact() {
                 Agenda una reunión
               </span>
               <h2 className="font-sora font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
-                Hagamos algo{' '}
-                <span className="text-[#5B8CFF]">extraordinario.</span>
+                Hablemos de tu crecimiento digital{' '}
+                <span className="text-[#5B8CFF]">en Armenia y Colombia.</span>
               </h2>
               <p className="font-poppins text-[#D1D5DB] text-base leading-relaxed mb-8 max-w-xl">
-                Cuéntanos tu proyecto y te contactamos en menos de 24 horas para agendar una reunión estratégica sin costo.
+                Cuéntanos tu proyecto de desarrollo web, software empresarial, ecommerce o automatización y te acompañamos con una propuesta estratégica premium.
               </p>
 
               {/* Contact details */}
