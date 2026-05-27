@@ -36,8 +36,8 @@ export default function About() {
               Sobre MAVIX
             </span>
             <h2 className="font-sora font-bold text-4xl md:text-5xl gradient-text mb-6 leading-tight">
-              Agencia tecnológica en Armenia{' '}
-              <span className="text-[#5B8CFF]">y el Eje Cafetero</span>
+              Agencia tecnológica en el Eje Cafetero{' '}
+              <span className="text-[#5B8CFF]">y Colombia</span>
             </h2>
             <p className="font-poppins text-[#7A7A7A] text-base leading-relaxed mb-5">
               MAVIX acompaña a empresas en Armenia, Quindío y Colombia con diseño web, software a medida y estrategia digital de alto nivel.
