@@ -155,14 +155,14 @@ function Hero() {
             variants={item}
             className="max-w-2xl font-poppins text-[#C9CDD2] text-base md:text-lg leading-relaxed mb-6"
           >
-            Agencia digital en Armenia, Quindío y Colombia. Desarrollamos páginas web premium, software a medida, apps web empresariales, ecommerce y automatización para empresas que buscan autoridad online.
+            Agencia digital en Armenia, Quindío y Colombia. Desarrollamos páginas web premium, software a medida, apps web empresariales, ecommerce para empresas que buscan autoridad online.
           </motion.p>
 
           <motion.p
             variants={item}
             className="max-w-2xl font-poppins text-[#C9CDD2] text-base md:text-lg leading-relaxed mb-12"
           >
-            Diseñamos experiencias digitales modernas, confiables y estratégicas que convierten visitantes en clientes y elevan la presencia de tu marca en el Eje Cafetero.
+            Diseñamos experiencias digitales modernas, confiables y estratégicas que convierten visitantes en clientes y elevan la presencia de tu marca en el Eje Cafetero y Colombia.
           </motion.p>
 
           <motion.div variants={item} className="flex flex-col sm:flex-row items-center gap-4">

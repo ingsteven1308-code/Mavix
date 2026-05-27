@@ -76,11 +76,10 @@ function Services() {
             Servicios en Armenia, Quindío y Colombia
           </span>
           <h2 className="font-sora font-bold text-4xl md:text-5xl lg:text-6xl gradient-text mb-6 leading-tight">
-            Soluciones digitales estratégicas
+            Servicios de desarrollo web y soluciones digitales en Colombia
           </h2>
           <p className="max-w-2xl mx-auto font-poppins text-[#7A7A7A] text-base md:text-lg leading-relaxed">
-            Desarrollamos tecnología premium para empresas colombianas: desde tiendas online y landing pages hasta software empresarial, apps web y automatización.
-          </p>
+            Diseñamos páginas web, tiendas online, landing pages, aplicaciones web y software empresarial moderno para potenciar la presencia y el crecimiento digital de tu empresa.</p>
         </motion.div>
 
         {/* Cards grid */}
